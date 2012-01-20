@@ -1,0 +1,189 @@
+<!doctype html>  
+<html>  
+<head>  
+<meta charset="utf-8"/>
+<meta name="viewport" content="initial-scale=1.0,width=device-width" />
+<title>The Heads-Up Grid Example</title>
+
+<link href="headsupgrid/hugrid.css" type="text/css" rel="stylesheet" />
+<script src="headsupgrid/jquery-1.6.2.min.js"></script>
+<script src="headsupgrid/hugrid.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        pageUnits = 'px';
+        colUnits = 'px';
+        pagewidth = 960;
+        columns = 6;
+        columnwidth = 140;
+        gutterwidth = 24;
+        pagetopmargin = 35;
+        rowheight = 20;
+        gridonload = 'off';
+        makehugrid();
+        setgridonload();
+    });
+</script>
+</head>
+
+<body>
+
+    <div class="page">
+        <h1>The Heads-Up Grid</h1>
+        <p id="subhead"><a href="http://bohemianalps.com/tools/grid/">The Heads-Up Grid</a> is an overlay grid for use during in-browser website development, built with HTML + CSS + JavaScript.</p>
+        
+        <div class="cols cols3">
+            <div class="col">
+                <h2>I’m Droppin’ Science</h2>
+                <p>This is just some filler copy. I got nothing to say that this example hasn’t already said. This is just some filler copy. I got nothing to say that this example hasn’t already said. This is just some filler copy. I got nothing to say that this example hasn’t already said.</p>
+            </div>
+            <div class="col">
+                <h2>Like Galileo</h2>
+                <p>This is just some filler copy. I got nothing to say that this example hasn’t already said. This is just some filler copy. I got nothing to say that this example hasn’t already said. This is just some filler copy. I got nothing to say that this example hasn’t already said.</p>
+            </div>
+            <div class="col">
+                <h2>Dropped the Orange!</h2>
+                <p>This is just some filler copy. I got nothing to say that this example hasn’t already said. This is just some filler copy. I got nothing to say that this example hasn’t already said. This is just some filler copy. I got nothing to say that this example hasn’t already said.</p>
+            </div>
+        </div>
+    </div>
+
+    <p id="footer">This is just some filler copy. I got nothing to say that this example hasn’t already said.</p>
+
+<style type="text/css">
+body {
+    margin:0;
+    padding:0;
+    background-color:#666;
+    font-family: 'Inconsolata', sans-serif;
+    text-align:left;
+    color:#444;
+}
+h1 {
+    margin:0 0 .1em 0;
+    padding:0;
+    font-family:Arial,sans-serif;
+    font-weight:bold;
+    font-size:80px;
+    line-height:100%;
+    text-align:center;
+    text-transform:uppercase;
+}
+h2 {
+    margin:1em 0 .3em 0;
+    padding:0;
+    font-family:Arial,sans-serif;
+    font-weight:bold;
+    font-size:27px;
+    line-height:100%;
+    text-align:center;
+}
+p {
+    font-size:.9em;
+    line-height:1.3em;
+    margin:0 0 1.5em 0;
+    padding:0;
+}
+p#subhead {
+    margin-bottom:0;
+    text-align:center;
+}
+p#footer {
+    position:relative;
+    z-index:200000;
+    clear:both;
+    margin:1em 0;
+    font-size:.8em;
+    text-align:center;
+    color:#FFF;
+}
+pre {
+    overflow:auto;
+    margin:0 0 1em 0;
+    padding:20px;
+    background-color:#ECE9D0;
+    border-radius:8px;
+    font-family:'Andale Mono',monospace;
+    font-size:.7em;
+    line-height:1.2em;
+    color:#666;
+}
+pre i {
+    font-style:normal;
+    color:#514CD6;
+}
+pre b {
+    font-weight:normal;
+    color:#BE0009;
+}
+a:link,
+a:visited {
+    border-width:0 0 1px 0;
+    border-style:dashed;
+    border-color:#3773B7;
+    text-decoration:none;
+    color:#3773B7;
+}
+a:hover {
+    border-style:solid;
+}
+a.button {
+    position:relative;
+    z-index:200000;
+    overflow:hidden;
+    display:block;
+    margin:4px;
+    padding:10px;
+    border-radius:8px;
+    border-width:0;
+}
+a.button:hover {
+    background-color:#ECE9D0;
+    box-shadow:1px 2px 8px #999;
+}
+a.button span {
+    display:block;
+    float:right;
+    width:175px;
+    padding-top:20px;
+    font-size:.9em;
+}
+a.button span strong {
+    font-size:1.4em;
+}
+#footer a:link,
+#footer a:visited {
+    border-color:#FFF;
+    color:#FFF;
+}
+
+/* Page Structure */
+div.page {
+    overflow:hidden;
+    width:960px;
+    margin:35px auto .5em auto;
+    padding:2em 2em 3em 2em;
+    background-color:#F7F4DB;
+    box-shadow:1px 2px 8px #222;
+}
+div.cols3 {
+    overflow:hidden;
+}
+div.col {
+    float:left;
+    margin:0;
+}
+div.cols3 div.col {
+    width:304px;
+    padding:0 0 0 24px;
+}
+div.cols2 div.col {
+    width:468px;
+    padding:0 0 0 24px;
+}
+div.cols div.col:first-child {
+    padding-left:0;
+}
+</style>
+
+</body>
+</html>
