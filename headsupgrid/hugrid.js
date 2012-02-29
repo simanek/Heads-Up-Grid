@@ -17,9 +17,9 @@
 *   http://www.gnu.org/licenses/gpl.html
 */
 
-(function($) {
-  
-  makehugrid = function() {
+;(function ($) {
+  // "use strict";
+  makehugrid = function () {
     /* Remove Previously Existing Grid Elements */
     $('#hugrid').remove();
     $('#hugridRows').remove();
@@ -35,7 +35,7 @@
     hugridDiv.appendChild(leftDiv);
 
     /* Create Columns */
-    for (i=0; i<(columns - 1); i++) {
+    for (var i = 0; i < (columns - 1); i++) {
       colDiv = document.createElement("div");
       colDiv.className = "hugcol";
       hugridDiv.appendChild(colDiv);
@@ -61,7 +61,7 @@
       var hugridRows = document.createElement("div")
       hugridRows.id  = "hugridRows";
       /* Create Rows */
-      for (i=0; i<(pageheight / rowheight); i++) {
+      for (var i = 0; i < (pageheight / rowheight); i++) {
         rowDiv = document.createElement("div");
         rowDiv.className = "hugrow";
         hugridRows.appendChild(rowDiv);
@@ -84,7 +84,7 @@
       $('#hugrid').css('left', 'auto');
       $('#hugrid').css('margin', '0');
     } else {
-      if (pageUnits == '%') {
+      if (pageUnits === '%') {
         $('#hugrid').css('left', ((100 - pagewidth) / 2) + pageUnits);
         $('#hugrid').css('margin-left', 'auto');
       } else {
@@ -106,7 +106,7 @@
     $('#hugridButton').append('<span id="hugbuttonOFF" style="display:none;">OFF</span>');
 
     /* On/Off Button - click functionality */
-    $('#hugridButton').click(function() {
+    $('#hugridButton').click(function () {
       $('#hugridButton').toggleClass('buttonisoff')
       $('#hugrid').toggle();
       $('#hugridRows').toggle();
@@ -114,14 +114,14 @@
     });
   };
 
-  setgridonload = function() {
+  setgridonload = function () {
     /* Default On/Off Setting */
-    if (gridonload == 'off') {
+    if (gridonload === 'off') {
       $('#hugridButton').toggleClass('buttonisoff')
       $('#hugrid').toggle();
       $('#hugridRows').toggle();
       $("#hugridButton span").toggle();
     }
   };
-  
+
 })(jQuery);
