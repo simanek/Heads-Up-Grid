@@ -1,6 +1,6 @@
-<!doctype html>  
-<html>  
-<head>  
+<!doctype html>
+<html>
+<head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="initial-scale=1.0,width=device-width" />
 <title>The Heads-Up Grid Example</title>
@@ -10,17 +10,22 @@
 <script src="headsupgrid/hugrid.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        pageUnits = 'px';
-        colUnits = 'px';
-        pagewidth = 960;
-        columns = 6;
-        columnwidth = 140;
-        gutterwidth = 24;
-        pagetopmargin = 35;
-        rowheight = 20;
-        gridonload = 'off';
-        makehugrid();
-        setgridonload();
+
+        // Create Heads-Up Grid accepting all defaults
+        // var hugrid = new $.headsUpGrid();
+
+        // Create Heads-Up Grid with custom options
+        var hugrid = new $.headsUpGrid({
+            pageUnits: '%',
+            colUnits: '%',
+            pageWidth: 94,
+            columns: 2,
+            columnWidth: 48,
+            gutterWidth: 4,
+            pageTopMargin: 35,
+            rowHeight: 20,
+            showGridOnload: true
+        });
     });
 </script>
 </head>
@@ -30,7 +35,7 @@
     <div class="page">
         <h1>The Heads-Up Grid</h1>
         <p id="subhead"><a href="http://bohemianalps.com/tools/grid/">The Heads-Up Grid</a> is an overlay grid for use during in-browser website development, built with HTML + CSS + JavaScript.</p>
-        
+
         <div class="cols cols3">
             <div class="col">
                 <h2>I’m Droppin’ Science</h2>
