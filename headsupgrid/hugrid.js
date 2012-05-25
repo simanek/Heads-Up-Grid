@@ -111,6 +111,11 @@
       $('#hugrid').toggle();
       $('#hugridRows').toggle();
       $("#hugridButton span").toggle();
+      if (gridstate === 'on') {
+        gridstate = 'off'
+      } else {
+        gridstate = 'on'
+      }
     });
   };
 
@@ -121,7 +126,17 @@
       $('#hugrid').toggle();
       $('#hugridRows').toggle();
       $("#hugridButton span").toggle();
+      gridstate = 'off'
     }
   };
+
+  setgridonresize = function () {
+    if (gridstate === 'off') {
+      $('#hugridButton').toggleClass('buttonisoff')
+      $('#hugrid').toggle();
+      $('#hugridRows').toggle();
+      $("#hugridButton span").toggle();
+    }
+  }
 
 })(jQuery);
