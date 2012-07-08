@@ -3,11 +3,11 @@
 * Simple HTML + CSS grid overlay for web design and development.
 *
 * Files: hugrid.css, hugrid.js, example.html
-* 
+*
 * Example and documentation at: http://bohemianalps.com/tools/grid
-* 
+*
 * Shurane, thanks for your help! https://github.com/shurane
-* 
+*
 * Copyright (c) 2011 Jason Simanek
 *
 * Version: 1.5 (09/03/2011)
@@ -19,12 +19,34 @@
 
 ;(function ($) {
   // "use strict";
-  makehugrid = function () {
-    /* Remove Previously Existing Grid Elements */
-    $('#hugrid').remove();
-    $('#hugridRows').remove();
-    $('#hugridUX').remove();
 
+ window.hugrid = {
+
+             state : {
+                  gridstate : 'undefined',
+                  gridonload :  'undefined'
+                },
+              
+              getGridstate : function() {
+                return window.hugrid.state.gridstate ;
+              },
+
+              toggleState : function() {
+                // change our indicators of state
+                if (window.hugrid.state.gridstate == 'on') {
+                  window.hugrid.state.gridstate = 'off' ;
+                }
+                else if( window.hugrid.state.gridstate == 'off'){
+                  window.hugrid.state.gridstate = 'on' ;
+                }
+              }
+  } ;
+ 
+  makehugrid = function () {
+
+    // called at startup. Remove grids, clear state.
+    initialCleanUp() ;
+    
     /* Column Container */
     var hugridDiv = document.createElement("div");
     hugridDiv.id  = "hugrid";
@@ -55,10 +77,10 @@
     document.body.appendChild(hugridDiv);
 
     /* If Rows */
-    if (rowheight != 0)  {
+    if (rowheight !== 0)  {
       /* Row Container */
       pageheight     = $(document.body).height();
-      var hugridRows = document.createElement("div")
+      var hugridRows = document.createElement("div") ;
       hugridRows.id  = "hugridRows";
       /* Create Rows */
       for (var i = 0; i < (pageheight / rowheight); i++) {
@@ -71,6 +93,9 @@
       }
 
       document.body.appendChild(hugridRows);
+      // if we have reached this far,
+      //  then upon creating the grid, toggle our indication of state
+      window.hugrid.state.gridstate = "on" ;
     }
 
     /* Apply CSS Properties */
@@ -107,36 +132,31 @@
 
     /* On/Off Button - click functionality */
     $('#hugridButton').click(function () {
-      $('#hugridButton').toggleClass('buttonisoff')
+      $('#hugridButton').toggleClass('buttonisoff') ;
       $('#hugrid').toggle();
       $('#hugridRows').toggle();
       $("#hugridButton span").toggle();
-      if (gridstate === 'on') {
-        gridstate = 'off'
-      } else {
-        gridstate = 'on'
-      }
+      window.hugrid.toggleState() ;
     });
   };
+  
 
-  setgridonload = function () {
-    /* Default On/Off Setting */
-    if (gridonload === 'off') {
-      $('#hugridButton').toggleClass('buttonisoff')
-      $('#hugrid').toggle();
-      $('#hugridRows').toggle();
-      $("#hugridButton span").toggle();
-      gridstate = 'off'
+function  initialCleanUp() {
+    /* Remove Previously Existing Grid Elements */
+    $('#hugrid').remove();
+    $('#hugridRows').remove();
+    $('#hugridUX').remove();
+    window.hugrid.state.gridstate = 'off' ;
     }
-  };
+
 
   setgridonresize = function () {
-    if (gridstate === 'off') {
-      $('#hugridButton').toggleClass('buttonisoff')
+    if ( window.hugrid.state.gridstate === 'off') {
+      $('#hugridButton').toggleClass('buttonisoff') ;
       $('#hugrid').toggle();
       $('#hugridRows').toggle();
       $("#hugridButton span").toggle();
     }
-  }
+  } ;
 
 })(jQuery);
