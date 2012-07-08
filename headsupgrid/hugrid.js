@@ -21,25 +21,15 @@
   // "use strict";
 
  window.hugrid = {
-
-             state : {
-                  gridstate : 'undefined',
-                  gridonload :  'undefined'
-                },
-              
-              getGridstate : function() {
-                return window.hugrid.state.gridstate ;
-              },
-
-              toggleState : function() {
-                // change our indicators of state
-                if (window.hugrid.state.gridstate == 'on') {
-                  window.hugrid.state.gridstate = 'off' ;
-                }
-                else if( window.hugrid.state.gridstate == 'off'){
-                  window.hugrid.state.gridstate = 'on' ;
-                }
-              }
+    toggleState : function() {
+      // change our indicators of state
+      if (window.hugrid.state == 'on') {
+        window.hugrid.state = 'off' ;
+      }
+      else if( window.hugrid.state == 'off'){
+        window.hugrid.state = 'on' ;
+      }
+    }
   } ;
  
   makehugrid = function () {
@@ -93,9 +83,6 @@
       }
 
       document.body.appendChild(hugridRows);
-      // if we have reached this far,
-      //  then upon creating the grid, toggle our indication of state
-      window.hugrid.state.gridstate = "on" ;
     }
 
     /* Apply CSS Properties */
@@ -141,17 +128,29 @@
   };
   
 
-function  initialCleanUp() {
+function initialCleanUp() {
     /* Remove Previously Existing Grid Elements */
     $('#hugrid').remove();
     $('#hugridRows').remove();
     $('#hugridUX').remove();
-    window.hugrid.state.gridstate = 'off' ;
     }
 
 
+  setgridonload = function () {
+    if ( gridonload === 'off') {
+      $('#hugridButton').toggleClass('buttonisoff') ;
+      $('#hugrid').toggle();
+      $('#hugridRows').toggle();
+      $("#hugridButton span").toggle();
+      window.hugrid.state = 'off'
+    } else {
+      window.hugrid.state = 'on'
+    }
+  } ;
+
+
   setgridonresize = function () {
-    if ( window.hugrid.state.gridstate === 'off') {
+    if ( window.hugrid.state === 'off') {
       $('#hugridButton').toggleClass('buttonisoff') ;
       $('#hugrid').toggle();
       $('#hugridRows').toggle();
