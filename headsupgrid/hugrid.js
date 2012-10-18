@@ -69,11 +69,15 @@
     /* If Rows */
     if (rowheight !== 0)  {
       /* Row Container */
-      windowheight     = $(window).height();
+      if ($(window).height() > $(document.body).height()){
+        pageheight     = $(window).height();
+      }else{
+        pageheight     = $(document.body).height();
+      }
       var hugridRows = document.createElement("div") ;
       hugridRows.id  = "hugridRows";
       /* Create Rows */
-      for (var i = 0; i < (windowheight / rowheight); i++) {
+      for (var i = 0; i < (pageheight / rowheight); i++) {
         rowDiv = document.createElement("div");
         rowDiv.className = "hugrow";
         hugridRows.appendChild(rowDiv);
