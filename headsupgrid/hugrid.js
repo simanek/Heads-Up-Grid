@@ -69,7 +69,11 @@
     /* If Rows */
     if (rowheight !== 0)  {
       /* Row Container */
-      pageheight     = $(document.body).height();
+      if ($(window).height() > $(document.body).height()){
+        pageheight     = $(window).height();
+      }else{
+        pageheight     = $(document.body).height();
+      }
       var hugridRows = document.createElement("div") ;
       hugridRows.id  = "hugridRows";
       /* Create Rows */
