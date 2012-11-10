@@ -141,7 +141,7 @@ function initialCleanUp() {
 
 
   setgridonload = function () {
-    if ( gridonload === 'off') {
+    if ( typeof gridonload === "undefined" || gridonload === 'off') {
       $('#hugridButton').toggleClass('buttonisoff') ;
       $('#hugrid').toggle();
       $('#hugridRows').toggle();
